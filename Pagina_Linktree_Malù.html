@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pasticceria e Cornetteria Malù - Link Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #ffffff); /* Rosa → Bianco */
+      background-attachment: fixed;
+      background-size: cover;
+      text-align: center;
+      padding: 2rem;
+      color: white;
+    }
+    .logo {
+      max-width: 180px; /* Logo più piccolo */
+      border-radius: 0; 
+      margin: 0 auto 2rem;
+      display: block;
+    }
+    .link-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border-radius: 12px;
+      padding: 1rem;
+      margin: 1rem auto;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      transition: transform 0.2s ease, background 0.2s ease;
+      cursor: pointer;
+    }
+    .link-button:hover {
+      transform: scale(1.03);
+    }
+    .icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 12px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Logo -->
+  <img src="logo.png" alt="Logo Malù" class="logo" />
+
+  <!-- Bottone Google Recensioni -->
+  <a class="link-button" href="https://tinyurl.com/2nvtfmvp" target="_blank" rel="noopener noreferrer">
+    <img class="icon" src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="Google" />
+    Lasciaci una Recensione
+  </a>
+
+  <!-- Bottone Instagram -->
+  <div class="link-button" id="instagramButton" role="button" tabindex="0">
+    <img class="icon" src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+    Seguici su Instagram
+  </div>
+
+  <!-- Bottone TikTok -->
+  <div class="link-button" id="tiktokButton" role="button" tabindex="0">
+    <img class="icon" src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" />
+    Seguici su TikTok
+  </div>
+
+  <script>
+    // Funzione generica per tentare apertura app + fallback web
+    function openAppOrWeb(appUrl, webUrl) {
+      const start = Date.now();
+      window.location = appUrl; // prova ad aprire l’app
+
+      setTimeout(function() {
+        if (Date.now() - start < 1500) {
+          window.open(webUrl, '_blank'); // fallback su browser
+        }
+      }, 1000);
+    }
+
+    document.getElementById('instagramButton').addEventListener('click', function () {
+      openAppOrWeb('instagram://user?username=pasticceria.cornetteria.malu', 'https://www.instagram.com/pasticceria.cornetteria.malu/');
+    });
+
+    document.getElementById('tiktokButton').addEventListener('click', function () {
+      openAppOrWeb('snssdk1233://user/profile/6968941927560479750', 'https://www.tiktok.com/@pasticceria_malu?_t=ZN-8zHUWtofr98&_r=1');
+    });
+  </script>
+</body>
+</html>
